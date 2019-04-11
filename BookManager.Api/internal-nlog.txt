@@ -1,0 +1,48 @@
+2019-04-11 22:34:24.9356 Error Parsing configuration from C:\dev\BookManagerSolution\BookManager.Api\bin\Debug\netcoreapp2.2\nlog.default.config failed. Exception: NLog.NLogConfigurationException: Exception when parsing C:\dev\BookManagerSolution\BookManager.Api\bin\Debug\netcoreapp2.2\nlog.default.config.  ---> NLog.NLogConfigurationException: Error when setting property 'FileName' on File Target[api-request] ---> System.ArgumentException: LayoutRenderer cannot be found: 'logDirectory'
+   at NLog.Config.Factory`2.CreateInstance(String name)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(ConfigurationItemFactory configurationItemFactory, String name)
+   at NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader stringReader)
+   at NLog.Layouts.LayoutParser.CompileLayout(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr, Boolean isNested, String& text)
+   at NLog.Layouts.SimpleLayout.set_Text(String value)
+   at NLog.Internal.PropertyHelper.TryNLogSpecificConversion(Type propertyType, String value, Object& newValue, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object obj, String propertyName, String value, ConfigurationItemFactory configurationItemFactory)
+   --- End of inner exception stack trace ---
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object obj, String propertyName, String value, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Config.XmlLoggingConfiguration.ConfigureObjectFromAttributes(Object targetObject, NLogXmlElement element, Boolean ignoreType)
+   at NLog.Config.XmlLoggingConfiguration.ParseTargetElement(Target target, NLogXmlElement targetElement, Dictionary`2 typeNameToDefaultTargetParameters)
+   at NLog.Config.XmlLoggingConfiguration.ParseTargetsElement(NLogXmlElement targetsElement)
+   at NLog.Config.XmlLoggingConfiguration.ParseNLogElement(NLogXmlElement nlogElement, String filePath, Boolean autoReloadDefault)
+   at NLog.Config.XmlLoggingConfiguration.Initialize(XmlReader reader, String fileName, Boolean ignoreErrors)
+   --- End of inner exception stack trace ---
+2019-04-11 22:36:17.4598 Error Parsing configuration from C:\dev\BookManagerSolution\BookManager.Api\bin\Debug\netcoreapp2.2\nlog.default.config failed. Exception: NLog.NLogConfigurationException: Exception when parsing C:\dev\BookManagerSolution\BookManager.Api\bin\Debug\netcoreapp2.2\nlog.default.config.  ---> NLog.NLogConfigurationException: Error when setting property 'FileName' on File Target[api-request] ---> System.ArgumentException: LayoutRenderer cannot be found: 'logDirectory'
+   at NLog.Config.Factory`2.CreateInstance(String name)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(ConfigurationItemFactory configurationItemFactory, String name)
+   at NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader stringReader)
+   at NLog.Layouts.LayoutParser.CompileLayout(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr, Boolean isNested, String& text)
+   at NLog.Layouts.SimpleLayout.set_Text(String value)
+   at NLog.Internal.PropertyHelper.TryNLogSpecificConversion(Type propertyType, String value, Object& newValue, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object obj, String propertyName, String value, ConfigurationItemFactory configurationItemFactory)
+   --- End of inner exception stack trace ---
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object obj, String propertyName, String value, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Config.XmlLoggingConfiguration.ConfigureObjectFromAttributes(Object targetObject, NLogXmlElement element, Boolean ignoreType)
+   at NLog.Config.XmlLoggingConfiguration.ParseTargetElement(Target target, NLogXmlElement targetElement, Dictionary`2 typeNameToDefaultTargetParameters)
+   at NLog.Config.XmlLoggingConfiguration.ParseTargetsElement(NLogXmlElement targetsElement)
+   at NLog.Config.XmlLoggingConfiguration.ParseNLogElement(NLogXmlElement nlogElement, String filePath, Boolean autoReloadDefault)
+   at NLog.Config.XmlLoggingConfiguration.Initialize(XmlReader reader, String fileName, Boolean ignoreErrors)
+   --- End of inner exception stack trace ---
+2019-04-11 22:36:42.8162 Error Parsing configuration from C:\dev\BookManagerSolution\BookManager.Api\bin\Debug\netcoreapp2.2\nlog.default.config failed. Exception: NLog.NLogConfigurationException: Exception when parsing C:\dev\BookManagerSolution\BookManager.Api\bin\Debug\netcoreapp2.2\nlog.default.config.  ---> NLog.NLogConfigurationException: Error when setting property 'FileName' on File Target[api-request] ---> System.ArgumentException: LayoutRenderer cannot be found: 'logDirectory'
+   at NLog.Config.Factory`2.CreateInstance(String name)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(ConfigurationItemFactory configurationItemFactory, String name)
+   at NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader stringReader)
+   at NLog.Layouts.LayoutParser.CompileLayout(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr, Boolean isNested, String& text)
+   at NLog.Layouts.SimpleLayout.set_Text(String value)
+   at NLog.Internal.PropertyHelper.TryNLogSpecificConversion(Type propertyType, String value, Object& newValue, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object obj, String propertyName, String value, ConfigurationItemFactory configurationItemFactory)
+   --- End of inner exception stack trace ---
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object obj, String propertyName, String value, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Config.XmlLoggingConfiguration.ConfigureObjectFromAttributes(Object targetObject, NLogXmlElement element, Boolean ignoreType)
+   at NLog.Config.XmlLoggingConfiguration.ParseTargetElement(Target target, NLogXmlElement targetElement, Dictionary`2 typeNameToDefaultTargetParameters)
+   at NLog.Config.XmlLoggingConfiguration.ParseTargetsElement(NLogXmlElement targetsElement)
+   at NLog.Config.XmlLoggingConfiguration.ParseNLogElement(NLogXmlElement nlogElement, String filePath, Boolean autoReloadDefault)
+   at NLog.Config.XmlLoggingConfiguration.Initialize(XmlReader reader, String fileName, Boolean ignoreErrors)
+   --- End of inner exception stack trace ---
