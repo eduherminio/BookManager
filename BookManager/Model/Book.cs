@@ -6,6 +6,12 @@ namespace BookManager.Model
     {
         public string ISBN { get; set; }
 
+        public string Title { get; set; }
+
+        public string Author { get; set; }
+
+        public Genre Genre { get; set; }
+
         public override string GetBusinessKey() => ISBN;
     }
 }
