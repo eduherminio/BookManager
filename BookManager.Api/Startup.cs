@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Reflection;
 using AspectCore.Extensions.DependencyInjection;
+using BookManager.Api.Constants;
 using BookManager.Api.Exceptions;
 using BookManager.Api.Swagger;
+using BookManager.Orm;
+using BookManager.Orm.Provider;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -47,8 +51,8 @@ namespace BookManager.Api
             string assemblyName = GetType().GetTypeInfo().Assembly.GetName().Name;
             services.ConfigureSwaggerMvcServices(_swaggerDocumentVersion, _apiInfo, assemblyName);
 
-            services.AddAuthenticationCore();
-            services.AddAuthorizationPolicyEvaluator();
+            // EntityFramework
+            WireDbContext<BookManagerDbContext>(services);
 
             services.AddMvcCore().AddApiExplorer();
             services.AddMvc(
@@ -75,6 +79,15 @@ namespace BookManager.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private void WireDbContext<TDbContext>(IServiceCollection services) where TDbContext : DbContext
+        {
+            string connectionString = Configuration[AppSettingsKeys.ConnectionStringKey];
+
+            // Some other providers could be chosen, according to Configuration[AppSettingsKeys.DbProviderKey]
+            var provider = new DbContextProvider();
+            provider.WireDbContext(services, Configuration, connectionString);
         }
     }
 }

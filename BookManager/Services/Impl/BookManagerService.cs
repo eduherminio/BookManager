@@ -1,8 +1,6 @@
-﻿using BookManager.Exceptions;
+﻿using BookManager.Dao;
+using BookManager.Exceptions;
 using BookManager.Logs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BookManager.Services.Impl
 {
@@ -10,5 +8,12 @@ namespace BookManager.Services.Impl
     [ExceptionManagement]
     public class BookManagerService : IBookManagerService
     {
+        private readonly IBookDao _dao;
+
+        public BookManagerService(IBookDao dao)
+        {
+            _dao = dao;
+            _dao.LoadAll();
+        }
     }
 }
