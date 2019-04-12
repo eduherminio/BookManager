@@ -1,4 +1,5 @@
 ﻿using BookManager.Orm.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookManager.Model
 {
@@ -13,5 +14,8 @@ namespace BookManager.Model
         public Genre Genre { get; set; }
 
         public override string GetBusinessKey() => ISBN;
+
+        [NotMapped]
+        public Borrowing Borrowing { get; set; }
     }
 }

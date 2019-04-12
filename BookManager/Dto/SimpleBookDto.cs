@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BookManager.Dto
 {
@@ -10,6 +8,7 @@ namespace BookManager.Dto
 
         public string Author { get; set; }
 
+        [Required]
         public string ISBN { get; set; }
 
         // TODO add cover, etc.
