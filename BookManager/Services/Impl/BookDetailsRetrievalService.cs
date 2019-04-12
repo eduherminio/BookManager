@@ -25,10 +25,9 @@ namespace BookManager.Services.Impl
             Uri uri = CreateUri(isbn);
             JObject jObject = HttpRequest.Get<JObject>(_httpClient, uri, out HttpStatusCode statusCode);
 
-            if (statusCode == HttpStatusCode.OK)
+            if (statusCode == HttpStatusCode.OK && !string.IsNullOrWhiteSpace(jObject.ToString().Trim('{').Trim('}')))
             {
-                Book book = DontJudgeMe(jObject);
-                return book;
+                return ParseRetrievedInfo(jObject, isbn);
             }
             else
             {
@@ -36,16 +35,17 @@ namespace BookManager.Services.Impl
             }
         }
 
-        private Book DontJudgeMe(JObject jObject)
+        private Book ParseRetrievedInfo(JObject jObject, string isbn)
         {
             string str = jObject.ToString();
-            str = str.Replace("\"ISBN:9780980200447\": {", "");
+            str = str.Replace("\"ISBN:" + isbn + "\": {", "");
             str = str.Remove(str.Length - 1, 1);
 
             BookInfo info = JsonConvert.DeserializeObject<BookInfo>(str);
 
             return new Book()
             {
+                ISBN = isbn,
                 Title = info.Title,
                 Author = string.Join(";", info.Authors.Select(author => author.Name))
             };

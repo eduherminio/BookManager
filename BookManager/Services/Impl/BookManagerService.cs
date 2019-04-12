@@ -30,7 +30,6 @@ namespace BookManager.Services.Impl
 
             if (book != null)
             {
-                book.ISBN = isbn;
                 book = _dao.Create(book);
                 return book.ISBN;
             }
@@ -54,7 +53,16 @@ namespace BookManager.Services.Impl
 
         public SimpleBookDto FindByISBN(string isbn)
         {
-            return _dao.Load(isbn).ToSimpleBookDto();
+            Book book = _dao.Load(isbn);
+            if (book != null)
+            {
+                return book.ToSimpleBookDto();
+            }
+            else
+            {
+                throw new EntityDoesNotExistException(
+                   $"There's no saved book with that ISBN ({isbn}), try adding it");
+            }
         }
 
         public ICollection<SimpleBookDto> LoadAll()
