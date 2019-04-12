@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
+using BookManager.Exceptions;
 using BookManager.Http;
+using BookManager.Logs;
 using BookManager.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BookManager.Services.Impl
 {
+    [Log]
+    [ExceptionManagement]
     public class BookDetailsRetrievalService : IBookDetailsRetrievalService
     {
         private readonly HttpClient _httpClient;
@@ -51,6 +54,7 @@ namespace BookManager.Services.Impl
             };
         }
 
+        // TODO make this configurable
         private static Uri CreateUri(string str) => new Uri(
             $"https://openlibrary.org/api/books?bibkeys=ISBN:{str}&jscmd=data&format=json", UriKind.Absolute);
 

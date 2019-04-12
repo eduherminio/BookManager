@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using BookManager.Dao;
-using BookManager.Dao.Impl;
 using BookManager.Dto;
 using BookManager.Exceptions;
 using BookManager.Logs;
@@ -41,7 +40,7 @@ namespace BookManager.Services.Impl
 
         public ICollection<SimpleBookDto> FindByAuthor(string author)
         {
-            return _dao.FindWhere(book => book.Author == author)
+            return _dao.FindWhere(book => book.Author.IndexOf(author, StringComparison.InvariantCultureIgnoreCase) >= 0)
                 .Select(book => book.ToSimpleBookDto()).ToList();
         }
 

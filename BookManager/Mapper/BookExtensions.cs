@@ -4,7 +4,7 @@ using BookManager.Model;
 namespace BookManager.Mapper
 {
     /// <summary>
-    /// TODO replace with automapper
+    /// TODO replace with automapper or similar
     /// </summary>
     public static class BookExtensions
     {
