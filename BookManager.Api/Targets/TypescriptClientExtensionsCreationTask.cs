@@ -5,7 +5,7 @@ namespace BookManager.Api.Targets
 {
     public class TypeScriptClientExtensionsCreationTask : Microsoft.Build.Utilities.Task
     {
-        private const string Extensions = @"import { BaseClient } from './BaseClient'";
+        private const string Extensions = "import { BaseClient } from './BaseClient'";
 
         public string BuildDir { get; set; }
         public string ExtensionCodeFileName { get; set; } = "client.extensions.ts";

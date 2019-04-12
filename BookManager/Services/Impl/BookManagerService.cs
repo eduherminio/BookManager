@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BookManager.Dao;
+using BookManager.Dao.Impl;
 using BookManager.Dto;
 using BookManager.Exceptions;
 using BookManager.Logs;
@@ -15,16 +16,28 @@ namespace BookManager.Services.Impl
     public class BookManagerService : IBookManagerService
     {
         private readonly IBookDao _dao;
+        private readonly IBookDetailsRetrievalService _bookDetailsRetrievalService;
 
-        public BookManagerService(IBookDao dao)
+        public BookManagerService(IBookDao dao, IBookDetailsRetrievalService bookDetailsRetrievalService)
         {
             _dao = dao;
-            _dao.LoadAll();
+            _bookDetailsRetrievalService = bookDetailsRetrievalService;
         }
 
         public string AddBook(string isbn)
         {
-            throw new NotImplementedException();
+            Book book = _bookDetailsRetrievalService.RetrieveBookInfo(isbn);
+
+            if (book != null)
+            {
+                book.ISBN = isbn;
+                book = _dao.Create(book);
+                return book.ISBN;
+            }
+            else
+            {
+                throw new EntityDoesNotExistException($"ISBN {isbn} cannot be found");
+            }
         }
 
         public ICollection<SimpleBookDto> FindByAuthor(string author)
@@ -39,9 +52,9 @@ namespace BookManager.Services.Impl
                 .Select(book => book.ToSimpleBookDto()).ToList();
         }
 
-        public SimpleBookDto FindByISBN(string id)
+        public SimpleBookDto FindByISBN(string isbn)
         {
-            return _dao.Load(id).ToSimpleBookDto();
+            return _dao.Load(isbn).ToSimpleBookDto();
         }
 
         public ICollection<SimpleBookDto> LoadAll()
@@ -50,9 +63,9 @@ namespace BookManager.Services.Impl
                 .Select(book => book.ToSimpleBookDto()).ToList();
         }
 
-        public BookDto LoadWithDetails(string id)
+        public BookDto LoadWithDetails(string isbn)
         {
-            throw new NotImplementedException();
+            return _dao.Load(isbn).ToBookDto();
         }
     }
 }

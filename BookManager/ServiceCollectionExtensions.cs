@@ -3,7 +3,6 @@ using BookManager.Dao.Impl;
 using BookManager.Services;
 using BookManager.Services.Impl;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace BookManager
 {
@@ -12,6 +11,8 @@ namespace BookManager
         public static void AddBookManagerServices(this IServiceCollection services)
         {
             services.AddScoped<IBookManagerService, BookManagerService>();
+            services.AddScoped<IBookDetailsRetrievalService, BookDetailsRetrievalService>();
+            services.AddHttpClient<IBookDetailsRetrievalService, BookDetailsRetrievalService>();
             services.AddScoped<IBookDao, BookDaoEfImpl>();
         }
     }

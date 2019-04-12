@@ -8,7 +8,7 @@ namespace BookManager.Dao.Impl
 {
     public class BookDaoEfImpl : BaseDaoEfImpl<Book, string>, IBookDao
     {
-        protected BookDaoEfImpl(IBookManagerContextContainer contextContainer) : base(contextContainer)
+        public BookDaoEfImpl(IBookManagerContextContainer contextContainer) : base(contextContainer)
         {
         }
 

@@ -1,8 +1,5 @@
 ﻿using BookManager.Dto;
 using BookManager.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BookManager.Mapper
 {

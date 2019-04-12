@@ -12,6 +12,6 @@ namespace BookManager.Dto
 
         public string ISBN { get; set; }
 
-        // TODO add main page
+        // TODO add cover, etc.
     }
 }

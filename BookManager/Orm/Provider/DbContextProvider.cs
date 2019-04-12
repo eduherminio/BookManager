@@ -12,7 +12,7 @@ namespace BookManager.Orm.Provider
 
     public class DbContextProvider : IDbContextProvider
     {
-        public virtual void WireDbContext(IServiceCollection services, IConfiguration configuration, string connectionString)
+        public void WireDbContext(IServiceCollection services, IConfiguration configuration, string connectionString)
         {
             services.AddDbContext<BookManagerDbContext>(GetDatabaseOptions(connectionString), ServiceLifetime.Scoped);
             services.AddScoped<IBookManagerContextContainer, BookManagerContextContainer<BookManagerDbContext>>();
@@ -25,11 +25,6 @@ namespace BookManager.Orm.Provider
                 builder.UseSqlServer(connectionString);
                 builder.EnableSensitiveDataLogging();
             };
-        }
-
-        public void WireContextContainer(IServiceCollection services)
-        {
-
         }
     }
 }

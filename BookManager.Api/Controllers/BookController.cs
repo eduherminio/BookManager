@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BookManager.Dto;
 using BookManager.Model;
 using BookManager.Services;
@@ -20,6 +17,11 @@ namespace BookManager.Api.Controllers
             _bookManagerService = bookManagerService;
         }
 
+        /// <summary>
+        /// Adds a book the collection
+        /// </summary>
+        /// <param name="isbn"></param>
+        /// <returns></returns>
         [HttpPost("{isbn}")]
         public string Add(string isbn)
         {
